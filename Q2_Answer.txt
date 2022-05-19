@@ -4,8 +4,9 @@ Question 2: For this question you’ll need to use SQL. Follow this link to acce
            SQL: SELECT COUNT(1) as TotalFromSpeedyExpress
                 FROM [Orders]
                 WHERE ShipperID = 
-	                (SELECT ShipperID FROM [Shippers]
-                    WHERE ShipperName = "Speedy Express")
+	                (SELECT ShipperID 
+			 FROM [Shippers]
+                    	 WHERE ShipperName = "Speedy Express")
            Result: 
                   TotalFromSpeedyExpress
                   54
@@ -16,13 +17,12 @@ Question 2: For this question you’ll need to use SQL. Follow this link to acce
             FROM [Employees]
             WHERE EmployeeID = 
             	(SELECT EmployeeID
-               FROM (SELECT EmployeeID, MAX (mostOrders)
-            		     FROM (SELECT EmployeeID, COUNT(OrderID) mostOrders
-            				       FROM [Orders]
-            				       GROUP BY EmployeeID
-                           )
-                      )
-                )
+                 FROM 
+		 	(SELECT EmployeeID, MAX (mostOrders)
+            		 FROM 
+			 	(SELECT EmployeeID, COUNT(OrderID) mostOrders
+            			 FROM [Orders]
+            		         GROUP BY EmployeeID)))
             Result: 
                     HighestSellerLastName
                     Peacock
