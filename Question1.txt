@@ -1,0 +1,7 @@
+After some analysis:
+  a)Think about what could be going wrong with our calculation. Think about a better way to evaluate this data.
+      -The calculations didn't disregard the outliers which tend to skew data.
+  b)What metric would you report for this dataset?
+      -Taking the mean of the order_amount column minus the outliers would best
+  c)What is its value?
+      -AOV came out to approximately $293.72, a more reasonable number than the previous $3145.13
