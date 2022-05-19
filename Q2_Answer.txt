@@ -29,19 +29,22 @@ Question 2: For this question you’ll need to use SQL. Follow this link to acce
           
           c)What product was ordered the most by customers in Germany?
            SQL: SELECT ProductName
-FROM [Products]
-WHERE ProductID = 
-	(Select ProductID 
-     FROM(SELECT ProductID, MAX (mostOrders)
-	      FROM (SELECT ProductID, COUNT(Quantity) mostOrders
-   		FROM [OrderDetails]
-        WHERE OrderID = (SELECT OrderID
+		FROM [Products]
+		WHERE ProductID = 
+			(Select ProductID 
+     			FROM
+				(SELECT ProductID, MAX (mostOrders)
+	      			FROM
+					(SELECT ProductID, COUNT(Quantity) mostOrders
+   					 FROM [OrderDetails]
+				         WHERE OrderID = 
+					 	(SELECT OrderID
 						 FROM [Orders]
 						 Where CustomerID in 
-                         			(SELECT CustomerID
-					 				 FROM [Customers]
-					 				 Where Country = "Germany"
-					 				 GROUP BY CustomerID)))))
+                         				(SELECT CustomerID
+					 		 FROM [Customers]
+					 		 Where Country = "Germany"
+					 		 GROUP BY CustomerID)))))
 
            Result: 
               ProductName
