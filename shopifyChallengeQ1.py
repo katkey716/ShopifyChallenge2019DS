@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 #loading the dataset into the dataframe
-path_name = '/Users/katkey/Desktop/2019 Winter Data Science Intern Challenge Data Set - Sheet1.csv'
+path_name = 'https://raw.githubusercontent.com/katkey716/ShopifyChallenge2019DS/main/Q1_dataset.csv'
 shopifydf = pd.read_csv(path_name)
 shopifydf.head()
 print(f'Previously calculated AOV: $',shopifydf['order_amount'].mean(), sep='')
